@@ -1,0 +1,8 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <input type="text" formControlName="description" />
+  <button [disabled]="formGroup.invalid" type="submit">add todo</button>
+</form>
+<h1>{{(state.count$ | async) }} ToDos</h1>
+<div (click)="state.removeToDo(todo)" *ngFor="let todo of state.toDos$ | async">
+  <label>{{ todo.description }}</label>
+</div>
